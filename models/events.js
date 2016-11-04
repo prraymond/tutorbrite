@@ -1,5 +1,18 @@
 'use strict';
 
+var sequelize = require('../database');
+var Sequelize = require('sequelize');
+
+var TutorEvent = sequelize.define('tutorevent', {
+  id: {type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true},
+  name: {type: Sequelize.STRING},
+  location: {type: Sequelize.STRING},
+  description: {type: Sequelize.TEXT},
+  imageUrl: {type: Sequelize.STRING, validate: {isUrl: true}},
+  date: Sequelize.DATE,
+});
+
+
 /**
  * An Array of all the events
  */
@@ -56,5 +69,7 @@ function getById (id) {
 
 module.exports = exports = {
   all: allEvents,
-  getById: getById
+  getById: getById,
+  sequelize: sequelize,
+  TutorEvent: TutorEvent
 };

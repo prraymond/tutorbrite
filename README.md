@@ -1,45 +1,18 @@
-# MGT 645 Project
+# DampSun 660 project
 
-This is the starter project for MGT 645. You'll fork this
-code in order to get started with your project. 
+Runing the code. You need to point it to your database and also run `gulp`. Do that
+by passing in an environment variable.
 
-## Getting started
+```
+DATABASE_URL="mysql://cs2228@localhost/tutorbrite" gulp
+```
 
-For the following instructions, we assume that you are logged
-into the virtual machine you are using for MGT 645. 
+Of course, you will need to have installed mysql if you're running that in a c9 environment,
+and also have created the tutorbrite database. And, clearly, your username will likely not
+be `cs228`! Change as appropriate. Follow the documentation [here](https://community.c9.io/t/setting-up-mysql/1718).
 
-To clone the repository, issue you'll use the following git command.
-
-	git clone https://github.com/yale-mgt-656/mgt656-spring-2015-project.git
-
-Then, you can do 
-
-	cd mgt656-project
-
-Then, you'll need to install the dependencies
-
-	npm install
-
-And, finally, you can run the code
-
-	./node_modules/.bin/gulp
-
-That will run the [nodemon](https://github.com/remy/nodemon)
-program, which is a nice way of running node and then restarting
-it when your files change. Every time your files change, it will
-also run [http://www.jshint.com/docs/](JSHint) to check your
-JavaScript code for bad practices.
-
-## Test your code
-
-Type the following command in order to run the
-[BDD](http://en.wikipedia.org/wiki/Behavior-driven_development)
-tests.
-
-	./node_modules/.bin/mocha
-
-That will run all the tests in `test/tests.js`.
-
+Then, you can initialize the database and add an event by visiting
+[http://tutorbrite-cs2228.c9users.io/events/init](http://tutorbrite-cs2228.c9users.io/events/init).
 
 ## What we're using
 
