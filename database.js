@@ -6,7 +6,7 @@ var Sequelize = require('sequelize');
   
   sequelize
   .authenticate()
-  .then(function(err) {
+  .then(function (err) {
     console.log('Connection has been established successfully.');
   })
   .catch(function (err) {

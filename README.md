@@ -11,6 +11,15 @@ Of course, you will need to have installed mysql if you're running that in a c9 
 and also have created the tutorbrite database. And, clearly, your username will likely not
 be `cs228`! Change as appropriate. Follow the documentation [here](https://community.c9.io/t/setting-up-mysql/1718).
 
+To start mysql on Cloud9, you'll want to run the following command
+
+```
+mysql-ctl start
+```
+
+You'll want to run that before you start your application with gulp, otherwise
+you will get an error about "connection refused" or something similiar.
+
 Then, you can initialize the database and add an event by visiting
 [http://tutorbrite-cs2228.c9users.io/events/init](http://tutorbrite-cs2228.c9users.io/events/init).
 
