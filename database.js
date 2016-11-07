@@ -2,7 +2,7 @@
 var Sequelize = require('sequelize');
   // Get a connection to the database, need to have the DATABASE_URL
   // environment variable set.
-  var sequelize = new Sequelize(process.env.DATABASE_URL);
+  var sequelize = new Sequelize(process.env.JAWSDB_URL || process.env.DATABASE_URL);
   
   sequelize
   .authenticate()
