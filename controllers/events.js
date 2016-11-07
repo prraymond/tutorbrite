@@ -61,7 +61,6 @@ function saveEvent(request, response){
     contextData.errors.push('Your title should be between 5 and 100 letters.');
   }
 
-
   if (contextData.errors.length === 0) {
     var newEvent = {
       title: request.body.title,
@@ -72,7 +71,8 @@ function saveEvent(request, response){
     };
     events.all.push(newEvent);
     response.redirect('/events');
-  }else{
+  }
+  else{
     response.render('create-event.html', contextData);
   }
 }
@@ -102,6 +102,31 @@ function rsvp (request, response){
 
 }
 
+function initializeDatabase(req, res){
+  events.sequelize.sync().then(function() {
+    return events.TutorEvent.create({
+      name: 'janedoe',
+      date: new Date(1980, 6, 20),
+      description: 'Mysql tutorial for free!',
+      location: 'Yale SOM 2400',
+      imageUrl: null
+    });
+  }).then(function(janesEvent) {
+    var plainJane = janesEvent.get({
+      plain: true
+    });
+    res.send(plainJane);
+    console.log(plainJane);
+});
+}
+
+//   id: {type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true},
+//   name: {type: Sequelize.STRING},
+//   location: {type: Sequelize.STRING},
+//   description: {type: Sequelize.TEXT},
+//   imageUrl: {type: Sequelize.STRING, validate: {isUrl: true}},
+//   date: Sequelize.DATE,
+
 /**
  * Export all our functions (controllers in this case, because they
  * handles requests and render responses).
@@ -111,5 +136,6 @@ module.exports = {
   'eventDetail': eventDetail,
   'newEvent': newEvent,
   'saveEvent': saveEvent,
-  'rsvp': rsvp
+  'rsvp': rsvp,
+  'initializeDatabase': initializeDatabase,
 };
