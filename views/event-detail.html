@@ -1,0 +1,12 @@
+Event Detail：
+
+<li>Title:{{event.title}}</li>
+<li>Location:{{event.location}}</li>
+<li>Time:{{event.date|prettyDate}}</li>
+
+<form id="rsvp" method='POST'>
+Email:<input type='text' name='email'></input>
+<input type='submit' value='RSVP'></input>
+</form>
+
+<div>Attending Email:{{event.attending}}</div>
