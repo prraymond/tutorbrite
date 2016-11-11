@@ -7,6 +7,12 @@ by passing in an environment variable.
 DATABASE_URL="mysql://cs2228@localhost/tutorbrite" gulp
 ```
 
+Welllll. That used to be the case. You'll need to run this instead now
+
+```
+DATABASE_URL="tutorbrite" gulp
+```
+
 Of course, you will need to have installed mysql if you're running that in a c9 environment,
 and also have created the tutorbrite database. And, clearly, your username will likely not
 be `cs228`! Change as appropriate. Follow the documentation [here](https://community.c9.io/t/setting-up-mysql/1718).
@@ -21,7 +27,7 @@ You'll want to run that before you start your application with gulp, otherwise
 you will get an error about "connection refused" or something similiar.
 
 Then, you can initialize the database and add an event by visiting
-[http://tutorbrite-cs2228.c9users.io/events/init](http://tutorbrite-cs2228.c9users.io/events/init).
+[/events/init](/events/init) in your app.
 
 ## What we're using
 

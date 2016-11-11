@@ -23,6 +23,7 @@ app.get('/events', eventControllers.listEvents);
 app.get('/events/init', eventControllers.initializeDatabase);
 app.get('/events/new', eventControllers.newEvent);
 app.post('/events/new', eventControllers.saveEvent);
+app.get('/events/search', eventControllers.eventSearch);
 app.get('/events/:id', eventControllers.eventDetail);
 app.post('/events/:id', eventControllers.rsvp);
 app.get('/api/events', eventControllers.api);
