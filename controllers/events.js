@@ -56,13 +56,14 @@ function newEvent(request, response){
  */
 function saveEvent(request, response){
   var contextData = {errors: []};
-
+  var new_id = events.all.length +1;
   if (validator.isLength(request.body.title, 5, 50) === false) {
     contextData.errors.push('Your title should be between 5 and 100 letters.');
   }
 
   if (contextData.errors.length === 0) {
     var newEvent = {
+      id: new_id,
       title: request.body.title,
       location: request.body.location,
       image: request.body.image,
