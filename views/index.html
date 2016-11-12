@@ -2,21 +2,27 @@
 
 {% block header %}
   <header>
-    <img id="logo" src="http://faculty.som.yale.edu/songma/img/yalelogo.jpg">
-    <h1>{{ title }}</h1>
+    <img id="logo" src="http://faculty.som.yale.edu/songma/img/yalelogo.jpg" width="1120" height="180">
+    <h1 class="initial">{{ title }}</h1>
   </header>
 {% endblock %}
 
 {% block mainContent %}
-  <p>
+  <p class="initial">
     Welcome to {{ title }}. {{tagline}}
   </p>
-  <p>Here are list of our boosts offerings:</p>
+    <div class="ex1">
+    {% include "fragments/events-search.html" %}<br>
+    </div>
+  
+  <p></p>
+  
+  <h4 class="initial2">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Don't feel like searching?<br>&nbsp;&nbsp;<br>
+    Here are list of our boosts offerings:
+  </h4>
   <div>
     {% include "fragments/events-list.html" %}
-  </div>
-  <div>
-    {% include "fragments/events-search.html" %}
   </div>
     Check out the <a href="/about">About us</a> page
     as well as the <a href="/events">Events</a> page.

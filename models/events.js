@@ -24,7 +24,7 @@ var allEvents = [
     // so, month zero is January. This is Jan 17th
     // 2013 at 4:30pm local time.
     date:   new Date(2016, 0, 17, 16, 30, 0),
-    image: 'http://i.imgur.com/pXjrQ.gif',
+    image: 'http://www.mp3poolonline.com/blog/wp-content/uploads/2016/03/house-party-guff.com_.jpg',
     location: 'Kyle \'s house',
     attending: ['kyle.jensen@yale.edu', 'kim.kardashian@yale.edu']
   },
@@ -32,7 +32,7 @@ var allEvents = [
     id: 1,
     title: 'BBQ party for hackers and nerds',
     date:   new Date(2015, 8, 1, 19, 0, 0),
-    image: 'http://i.imgur.com/7pe2k.gif',
+    image: 'http://www.myncbc.org/church/assets/images/News_Media/BBQ.jpg',
     location: 'Miles\' house',
     attending: ['kyle.jensen@yale.edu', 'kim.kardashian@yale.edu']
   },

@@ -1,12 +1,20 @@
+<head>
 Event Detail：
-
+<p></p>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+</head>
+<p></p>
+<p></p>
 <li>Title:{{event.title}}</li>
 <li>Location:{{event.location}}</li>
 <li>Time:{{event.date|prettyDate}}</li>
-
+<p></p>
+<p></p>
 <form id="rsvp" method='POST'>
 Email:<input type='text' name='email'></input>
 <input type='submit' value='RSVP'></input>
 </form>
-
+<p></p>
 <div>Attending Email:{{event.attending}}</div>
