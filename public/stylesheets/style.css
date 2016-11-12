@@ -1,4 +1,5 @@
 body {
+  background-image: url("http://www.ccfgb.co.uk/images/flippingbook/abstract_background_grey.jpg");
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -17,3 +18,45 @@ footer {
   border: 1px solid #ddd;
   margin: 2em 0;
 }
+
+
+h1.initial {
+    padding-left: 350px;
+    padding-top: 25px;
+    padding-bottom: 25px; 
+}
+
+p.initial {
+    padding-left: 340px;
+    padding-top: 10px;
+    padding-bottom: 10px; 
+}
+
+h4.initial2 {
+    padding-left: 450px;
+    padding-top: 10px;
+    padding-bottom: 10px; 
+}
+
+div.ex1 {
+    padding-left: 480px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+
+ul{
+display:inline-block;
+vertical-align:top;
+}
+

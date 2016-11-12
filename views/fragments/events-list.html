@@ -1,9 +1,10 @@
 <ul>
   {% for event in events %}
-    <li class="event" id="{{event.id}}">
-      <a href="/events/{{event.id}}">{{event.title}}.</a>
-      <time datetime="{{event.date}}">{{event.date|prettyDate}}</time>
-      {{event.attending.length}} attending so far.
-    </li>
+    <ul class="event" id="{{event.id}}">
+      <img src="{{event.image}}" width="240" height="160"><br>
+      <a href="/events/{{event.id}}">{{event.title}}.</a><br>
+      <time datetime="{{event.date}}">{{event.date|prettyDate}}</time><br>
+      {{event.attending.length}} attending so far.<br> &nbsp;&nbsp;&nbsp;
+    </ul>
   {% endfor %}
 </ul>
