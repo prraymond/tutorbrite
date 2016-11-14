@@ -4,7 +4,7 @@ Runing the code. You need to point it to your database and also run `gulp`. Do t
 by passing in an environment variable.
 
 ```
-DATABASE_URL="mysql://cs2228@localhost/tutorbrite" gulp
+DATABASE_URL="mysql://cs2228@localhost/tutorbrite" gulp  (not use)
 ```
 
 Welllll. That used to be the case. You'll need to run this instead now
