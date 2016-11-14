@@ -33,12 +33,15 @@ var allowedDateInfo = {
  * Controller that renders a list of events in HTML.
  */
 function listEvents(request, response) {
-  var currentTime = new Date();
-  var contextData = {
-    'events': events.all,
-    'time': currentTime
-  };
-  response.render('event.html', contextData);
+  events.TutorEvent.findAll().then(function(foundEvents){
+    console.log('We found ' + foundEvents.length + ' events');
+    var currentTime = new Date();
+    var contextData = {
+      'events': foundEvents,
+      'time': currentTime
+    };
+    response.render('event.html', contextData);
+  });
 }
 
 /**
@@ -56,22 +59,21 @@ function newEvent(request, response){
  */
 function saveEvent(request, response){
   var contextData = {errors: []};
-  var new_id = events.all.length +1;
   if (validator.isLength(request.body.title, 5, 50) === false) {
     contextData.errors.push('Your title should be between 5 and 100 letters.');
   }
 
   if (contextData.errors.length === 0) {
-    var newEvent = {
-      id: new_id,
-      title: request.body.title,
+    
+    events.TutorEvent.create({
+      name: request.body.title,
       location: request.body.location,
-      image: request.body.image,
-      date: new Date(),
-      attending: []
-    };
-    events.all.push(newEvent);
-    response.redirect('/events');
+      date: new Date(request.body.date),
+      description: 'This is a fun event, please come'
+    }).then(function(newEvent){
+      response.redirect('/events');
+    });
+    
   }
   else{
     response.render('create-event.html', contextData);

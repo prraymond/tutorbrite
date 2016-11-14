@@ -68,8 +68,8 @@ function getById (id) {
 }
 
 module.exports = exports = {
-  all: allEvents,
-  getById: getById,
+  // all: allEvents,
+  // getById: getById,
   sequelize: sequelize,
   TutorEvent: TutorEvent
 };
