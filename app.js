@@ -9,7 +9,6 @@ var indexControllers = require('./controllers/index.js');
 var aboutControllers = require('./controllers/about.js');
 var eventControllers = require('./controllers/events.js');
 
-
 // Create our express app
 var app = express();
 

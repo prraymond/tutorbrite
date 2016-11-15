@@ -2,7 +2,7 @@
   {% for event in events %}
     <ul class="event" id="{{event.id}}">
       {{event.name}}
-      <img src="{{event.image}}" width="240" height="160"><br>
+      <img src="{{event.imageUrl}}" width="240" height="160"><br>
       <a href="/events/{{event.id}}">{{event.description}}.</a><br>
       <time datetime="{{event.date}}">{{event.date|prettyDate}}</time><br>
       {{event.attending.length}} attending so far.<br> &nbsp;&nbsp;&nbsp;

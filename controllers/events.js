@@ -69,7 +69,8 @@ function saveEvent(request, response){
       name: request.body.title,
       location: request.body.location,
       date: new Date(request.body.date),
-      description: 'This is a fun event, please come'
+      description: 'This is a fun event, please come',
+      imageUrl: request.body.imageUrl,
     }).then(function(newEvent){
       response.redirect('/events');
     });
@@ -81,11 +82,16 @@ function saveEvent(request, response){
 }
 
 function eventDetail (request, response) {
-  var ev = events.getById(parseInt(request.params.id));
-  if (ev === null) {
-    response.status(404).send('No such event');
+  var errors = [];
+  if (validator.isNumeric(request.params.id) === false) {
+    errors.push('Your event id should be a number');
+    response.render('event-detail.html', {event: null, errors: errors});
+    return;
   }
-  response.render('event-detail.html', {event: ev});
+  var eventId = parseInt(request.params.id);
+  events.TutorEvent.findById(eventId).then(function(eventWeFound) {
+    response.render('event-detail.html', {event: eventWeFound});
+  });
 }
 
 function rsvp (request, response){
@@ -176,3 +182,4 @@ module.exports = {
   'api': api,
   'eventSearch': eventSearch
 };
+
