@@ -28,5 +28,6 @@ app.get('/events/:id', eventControllers.eventDetail);
 app.post('/events/:id', eventControllers.rsvp);
 app.get('/api/events', eventControllers.api);
 app.get('/register', userControllers.register);
+app.post('/register', userControllers.register);
 app.get('/login', userControllers.login);
 module.exports = app;
