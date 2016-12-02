@@ -161,6 +161,7 @@ function eventSearch(request, response){
 }
 
 
+
 //   id: {type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true},
 //   name: {type: Sequelize.STRING},
 //   location: {type: Sequelize.STRING},

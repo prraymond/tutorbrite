@@ -1,7 +1,7 @@
 <ul>
   {% for event in events %}
     <ul class="event" id="{{event.id}}">
-      {{event.name}}<br>
+      <h3>{{event.name}}</h3><br>
       <img src="{{event.imageUrl}}" width="240" height="160"><br>
       <a href="/events/{{event.id}}">{{event.description}}.</a><br>
       <time datetime="{{event.date}}">{{event.date|prettyDate}}</time><br>
