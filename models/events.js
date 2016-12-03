@@ -12,6 +12,7 @@ var TutorEvent = sequelize.define('tutorevent', {
   date: Sequelize.DATE,
 });
 
+TutorEvent.sync();
 
 /**
  * An Array of all the events
