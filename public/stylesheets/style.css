@@ -1,7 +1,7 @@
 body {
-  background-image: url("http://www.ccfgb.co.uk/images/flippingbook/abstract_background_grey.jpg");
+  /* background-image: url("http://www.ccfgb.co.uk/images/flippingbook/abstract_background_grey.jpg"); */
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -13,9 +13,8 @@ a {
 }
 
 footer {
-  background-color: #eee;
   padding: 1em;
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
   margin: 2em 0;
 }
 
@@ -59,4 +58,3 @@ ul{
 display:inline-block;
 vertical-align:top;
 }
-
