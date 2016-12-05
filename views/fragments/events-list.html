@@ -1,11 +1,13 @@
 <ul>
   {% for event in events %}
     <ul class="event" id="{{event.id}}">
-      <a href="/events/{{event.id}}"><h3>{{event.name}}</h3><br></a>
+      <a href="/events/{{event.id}}"><h1>{{event.name}}</h1><br></a>
       <a href="/events/{{event.id}}"><img src="{{event.imageUrl}}" width="240" height="160"></a><br>
-      {{event.description}}<br>
-      <time datetime="{{event.date}}">{{event.date|prettyDate}}</time><br>
-       Location: {{event.location}}<br> &nbsp;&nbsp;&nbsp;
+      <p> 
+        {{event.description}}<br> 
+        <time datetime="{{event.date}}">{{event.date|prettyDate}}</time><br>
+        Location: {{event.location}}<br>
+      </p>
     </ul>
   {% endfor %}
 </ul>

@@ -1,9 +1,14 @@
 {% extends "layout.html" %}
 
 {% block mainContent %}
-    <h2>
+    <h1>
+      Create event
+    </h1>
+
+    <p>
       You have a talent to share? Please submit your event:
-    </h2>
+    </p>
+    </br>
     
   {% if errors %}
 
@@ -17,17 +22,34 @@
     </div>
   {% endif %}
 
+  <div id="create-event">
 	  <form id="create-event" method="POST">
-    <label for="title"> Event title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="title"> </label><br>
-    <label for="location"> Event location: &nbsp;&nbsp;<input type="text" name="location"> </label><br>
-    <label for="image"> Event image: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="url" name="imageUrl" placeholder="Please submit a url ending with .png, .jpg or .jpeg" ></label><br>
-    <label for="date"> Event date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date" name="date"> </label><br>
-    <label for="time"> Event time: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="time" name="usr_time"></label><br>
-    <label for="description"> Description:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="description"> </label><br>
-    Your email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email">
-    <input type="submit" value="Submit"/>
+	    
+      <label for="title"> Event title: </label> </br>
+      <input type="text" name="title"> </br>
+      
+      <label for="location"> Event location: </label> </br>
+      <input type="text" name="location"> </br>
+      
+      <label for="image"> Event image: </label> </br>
+      <input type="url" name="imageUrl" placeholder="Please submit a url ending with .png, .jpg or .jpeg" > </br>
+      
+      <label for="date"> Event date: </label> </br>
+      <input type="date" name="date"> </br>
+      
+      <label for="time"> Event time: </label> </br>
+      <input type="time" name="usr_time"> </br>
+      
+      <label for="description"> Description: </label> </br>
+      <input type="text" name="description"> </br>
+      
+      <label for="email"> Your email: </label> </br>
+      <input type="email" name="email"> </br>
+      
+      <input type="submit" value="Submit"/>
     </form>
-  
+  </div>
+  </br>
 {% endblock %}
 
 
