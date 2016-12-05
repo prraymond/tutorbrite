@@ -4,8 +4,12 @@
 
 <h2>Please register here</h2>
     <form method="POST">
-        User name:<input type="text" name="username"/><br>
-        User password:<input type="password" name="password"/><br>
+        <label for="user-name">User name</label>
+        <input type="text" name="username"/><br>
+        
+        <label for="password">User password</label>
+        <input type="password" name="password"/><br>
+        
         <input type="submit" value="Submit"/>
     </form>
 {% endblock %}
