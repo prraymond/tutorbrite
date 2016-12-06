@@ -144,20 +144,21 @@ function api(request, response){
   response.json(output);
 }
 
-
 function eventSearch(request, response){
-  var output = {events: []};
-  var search = request.query.search;
-  if(search){
-    for(var i = 0; i < events.all.length; i++){
-      if(events.all[i].title.indexOf(search) !== -1){
-      output.events.push(events.all[i]);
-    }
-    }
-  }else{
-    output.events = events.all;
-  }
-  response.render("search-results.html", output);
+var output = {events: []};
+var search = "%" + request.query.search + "%" ;
+if(search){
+events.TutorEvent.findAll(
+{
+where:{name:{$like:search}}
+}).then(
+function(eventWeFound) {
+output = {events: eventWeFound};
+response.render('search-results.html', output);
+});
+}else{
+output.events = events.all;
+}
 }
 
 
