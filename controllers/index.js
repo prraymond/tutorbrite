@@ -10,7 +10,7 @@ function index (request, response) {
   events.TutorEvent.findAll().then(function(foundEvents){
     console.log('We found ' + foundEvents.length + ' events');
     var contextData = {
-      'title': 'Yale SOM tutoring sessions',
+      'title': 'Yale SOM source of infinite wisdom',
       'tagline': 'Learn talents from your classmates',
       'events': foundEvents
     };

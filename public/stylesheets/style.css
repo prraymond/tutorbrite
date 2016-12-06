@@ -4,6 +4,19 @@ body {
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+header {
+    text-align: center;
+}
+
+footer {
+    padding: 1em;
+    border: 3px solid black;
+    margin: 2em 0;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+
 a {
   color: #f25170;
 }
@@ -19,12 +32,6 @@ label {
 
 .form-errors {
 	color: red;
-}
-
-footer {
-  padding: 1em;
-  border: 3px solid black;
-  margin: 2em 0;
 }
 
 h1 {
