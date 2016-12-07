@@ -1,14 +1,23 @@
 'use strict';
 
+var events = require('../models/events');
+
 /**
  * Controller that renders our index (home) page.
  */
 function index (request, response) {
-  var contextData = {
-    'title': 'MGT 656',
-    'tagline': 'You are doomed (just kidding).'
-  };
-  response.render('index.html', contextData);
+
+  events.TutorEvent.findAll().then(function(foundEvents){
+    console.log('We found ' + foundEvents.length + ' events');
+    var contextData = {
+      'title': 'Yale SOM source of infinite wisdom',
+      'tagline': 'Learn talents from your classmates',
+      'events': foundEvents
+    };
+    response.render('index.html', contextData);
+  });
+
+  
 }
 
 module.exports = {

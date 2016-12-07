@@ -1,8 +1,17 @@
 {% extends "layout.html" %}
 
 {% block mainContent %}
+    <h1>
+      Create event
+    </h1>
 
+    <p>
+      You have a talent to share? Please submir your super-power boost:
+    </p>
+    </br>
+    
   {% if errors %}
+
     <div class="form-errors">
       <p>Please correct the following errors!</p>
       <ul>
@@ -13,10 +22,34 @@
     </div>
   {% endif %}
 
-	<form id="create-event" method="POST">
-    <label for="title">Event title:</label>
-    <input type="text" name="title">
-  </form>
+  <div id="create-event">
+	  <form id="create-event" method="POST">
+	    
+      <label for="title"> Boost title: </label> </br>
+      <input type="text" name="title"> </br>
+      
+      <label for="location"> Boost location: </label> </br>
+      <input type="text" name="location"> </br>
+      
+      <label for="image"> Boost image: </label> </br>
+      <input type="url" name="imageUrl" placeholder="Please submit a url ending with .png, .jpg or .jpeg" > </br>
+      
+      <label for="date"> Boost date: </label> </br>
+      <input type="date" name="date"> </br>
+      
+      <label for="time"> Boost time: </label> </br>
+      <input type="time" name="usr_time"> </br>
+      
+      <label for="description"> Description: </label> </br>
+      <input type="text" name="description"> </br>
+      
+      <label for="email"> Jedi's email: </label> </br>
+      <input type="email" name="email"> </br>
+      
+      <input type="submit" value="Submit"/>
+    </form>
+  </div>
+  </br>
 {% endblock %}
 
 

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block mainContent %}
+<h1>
+   {{event.name}}
+</h1>
+</br>
+
+<div id="event-detail"> 
+    <img src="{{event.imageUrl}}" width="480" height="320">
+</div>
+<div id="event-detail">
+    <p> {{event.description}} </p>
+    <p> {{event.name}} will be at {{event.location}} on {{event.date|prettyDate}} </p>
+    
+    <!-- 
+    <li>Title:{{event.name}}</li>
+    <li>Location:{{event.location}}</li>
+    <li>Time:{{event.date|prettyDate}}</li> 
+    -->
+    </br>
+    <form id="rsvp" method='POST'>
+        <label for="email"> Email: </label> </br>
+        <input type='text' name='email'></input> 
+        <input type='submit' value='RSVP'></input>
+    </form>
+    </br>
+</div>
+
+<div>Attending Email:{{event.attending}}</div>
+{% endblock %}

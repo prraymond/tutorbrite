@@ -1,12 +1,143 @@
 body {
+  /* background-image: url("http://www.ccfgb.co.uk/images/flippingbook/abstract_background_grey.jpg"); */
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+footer {
+    padding: 1em;
+    border: 3px solid black;
+    margin: 2em 0;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
 }
 
 a {
-  color: #00B7FF;
+  color: #f25170;
+}
+
+a:hover {
+    color: #03a9f4;
+}
+
+label {
+    font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-variant: normal;
 }
 
 .form-errors {
 	color: red;
+}
+
+h1 {
+    font-size: 32px;
+    font: 800;
+    color: black;
+}
+
+h2 {
+    font-size: 24px;
+    text-align: center;
+    color: black;
+}
+
+p {
+    font-size: 16px;
+    line-height: 22px;
+    
+}
+
+img {
+    padding-top: 0px;
+    padding-bottom: 15px;
+}
+
+h1.initial {
+    font-size: 40px;
+    color: black;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px; 
+}
+
+p.initial {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 0px; 
+}
+
+h2.initial {
+   /* padding-left: 450px; */
+    font-size: 16px;
+    line-height: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px; 
+}
+
+div.ex1 {
+    text-align: center;
+   /* padding-left: 400px;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+input[type=text], input[type=url], input[type=date], input[type=time], input[type=email]{
+    outline: none;
+    display: inline-block;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    padding: 16px 32px;
+    padding-left: 10px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    width: 400px;
+}
+
+input[name="search"] {
+    background-color: white;
+    background-image: url(http://images.clipartpanda.com/search-png-white-NWvnS.png);
+    background-position: 3px 3px; 
+    background-repeat: no-repeat;
+    padding: 16px 32px;
+    padding-left: 60px;
+    width: 60%;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+input[name="search"]:focus {
+    width: 80%;
+    border: 3px solid #555;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    border: 1px solid #4CAF50;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #03a9f4;
+}
+
+ul{
+display:inline-block;
+vertical-align:top;
 }

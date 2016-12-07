@@ -33,12 +33,15 @@ var allowedDateInfo = {
  * Controller that renders a list of events in HTML.
  */
 function listEvents(request, response) {
-  var currentTime = new Date();
-  var contextData = {
-    'events': events.all,
-    'time': currentTime
-  };
-  response.render('event.html', contextData);
+  events.TutorEvent.findAll().then(function(foundEvents){
+    console.log('We found ' + foundEvents.length + ' events');
+    var currentTime = new Date();
+    var contextData = {
+      'events': foundEvents,
+      'time': currentTime
+    };
+    response.render('event.html', contextData);
+  });
 }
 
 /**
@@ -56,33 +59,39 @@ function newEvent(request, response){
  */
 function saveEvent(request, response){
   var contextData = {errors: []};
-
   if (validator.isLength(request.body.title, 5, 50) === false) {
     contextData.errors.push('Your title should be between 5 and 100 letters.');
   }
 
-
   if (contextData.errors.length === 0) {
-    var newEvent = {
-      title: request.body.title,
+    
+    events.TutorEvent.create({
+      name: request.body.title,
       location: request.body.location,
-      image: request.body.image,
-      date: new Date(),
-      attending: []
-    };
-    events.all.push(newEvent);
-    response.redirect('/events');
-  }else{
+      date: new Date(request.body.date),
+      description: 'This is a fun event, please come',
+      imageUrl: request.body.imageUrl,
+    }).then(function(newEvent){
+      response.redirect('/events');
+    });
+    
+  }
+  else{
     response.render('create-event.html', contextData);
   }
 }
 
 function eventDetail (request, response) {
-  var ev = events.getById(parseInt(request.params.id));
-  if (ev === null) {
-    response.status(404).send('No such event');
+  var errors = [];
+  if (validator.isNumeric(request.params.id) === false) {
+    errors.push('Your event id should be a number');
+    response.render('event-detail.html', {event: null, errors: errors});
+    return;
   }
-  response.render('event-detail.html', {event: ev});
+  var eventId = parseInt(request.params.id);
+  events.TutorEvent.findById(eventId).then(function(eventWeFound) {
+    response.render('event-detail.html', {event: eventWeFound});
+  });
 }
 
 function rsvp (request, response){
@@ -102,6 +111,65 @@ function rsvp (request, response){
 
 }
 
+function initializeDatabase(req, res){
+  events.sequelize.sync().then(function() {
+    return events.TutorEvent.create({
+      name: 'janedoe',
+      date: new Date(1980, 6, 20),
+      description: 'Mysql tutorial for free!',
+      location: 'Yale SOM 2400',
+      imageUrl: null
+    });
+  }).then(function(janesEvent) {
+    var plainJane = janesEvent.get({
+      plain: true
+    });
+    res.send(plainJane);
+    console.log(plainJane);
+});
+}
+
+function api(request, response){
+  var output = {events: []};
+  var search = request.query.search;
+  if(search){
+    for(var i = 0; i < events.all.length; i++){
+      if(events.all[i].title.indexOf(search) !== -1){
+      output.events.push(events.all[i]);
+    }
+    }
+  }else{
+    output.events = events.all;
+  }
+  response.json(output);
+}
+
+function eventSearch(request, response){
+var output = {events: []};
+var search = "%" + request.query.search + "%" ;
+if(search){
+events.TutorEvent.findAll(
+{
+where:{name:{$like:search}}
+}).then(
+function(eventWeFound) {
+output = {events: eventWeFound};
+response.render('search-results.html', output);
+});
+}else{
+output.events = events.all;
+}
+}
+
+
+
+//   id: {type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true},
+//   name: {type: Sequelize.STRING},
+//   location: {type: Sequelize.STRING},
+//   description: {type: Sequelize.TEXT},
+//   imageUrl: {type: Sequelize.STRING, validate: {isUrl: true}},
+//   date: Sequelize.DATE,
+
 /**
  * Export all our functions (controllers in this case, because they
  * handles requests and render responses).
@@ -111,5 +179,9 @@ module.exports = {
   'eventDetail': eventDetail,
   'newEvent': newEvent,
   'saveEvent': saveEvent,
-  'rsvp': rsvp
+  'rsvp': rsvp,
+  'initializeDatabase': initializeDatabase,
+  'api': api,
+  'eventSearch': eventSearch
 };
+

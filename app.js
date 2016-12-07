@@ -8,7 +8,7 @@ var configure = require('./config.js');
 var indexControllers = require('./controllers/index.js');
 var aboutControllers = require('./controllers/about.js');
 var eventControllers = require('./controllers/events.js');
-
+var userControllers = require('./controllers/users.js');
 
 // Create our express app
 var app = express();
@@ -20,7 +20,14 @@ configure(app);
 app.get('/', indexControllers.index);
 app.get('/about', aboutControllers.about);
 app.get('/events', eventControllers.listEvents);
+app.get('/events/init', eventControllers.initializeDatabase);
 app.get('/events/new', eventControllers.newEvent);
 app.post('/events/new', eventControllers.saveEvent);
-
+app.get('/events/search', eventControllers.eventSearch);
+app.get('/events/:id', eventControllers.eventDetail);
+app.post('/events/:id', eventControllers.rsvp);
+app.get('/api/events', eventControllers.api);
+app.get('/register', userControllers.register);
+app.post('/register', userControllers.register);
+app.get('/login', userControllers.login);
 module.exports = app;
